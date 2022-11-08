@@ -33,3 +33,13 @@ data class StudentAndUniversity(
     )
     val university: University? = null
 )
+
+data class UniversityAndStudent(
+    @Embedded
+    val university: University,
+    @Relation(
+        parentColumn = "universityId",
+        entityColumn = "univId"
+    )
+    val student: List<Student>
+)
